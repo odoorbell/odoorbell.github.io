@@ -1,1 +1,74 @@
-<h1>欢迎欢迎！</h1>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        /* 为每个链接设定样式 */
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        /* 鼠标放置链接时改变样式 */
+        .dropbtn:hover
+        {
+            background-color: #111;
+            color: red;
+        }
+
+        .dropdown {
+            display: inline-block;
+
+        }       
+
+        /* 下拉菜单设置样式 */
+        .dropdown-content {
+            /* 隐藏菜单 */
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            /* 设置链接元素的最小宽度 */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(12, 12, 12, 0.2);
+            overflow: auto;
+        }
+        .dropdown-content a {
+            display: block;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;  
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+          
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <div class="dropdown">
+            <a href="#" class="dropbtn"><i class="fa-solid fa-bars"></i></a>
+            <div class="dropdown-content">
+                <a href="#">首页</a>
+                <a href="#">成员</a>
+                <a href="#">文档</a>
+            </div>
+        </div>
+<center><img src="https://img.fastmirror.net/s/2024/11/23/6741e20120618.png" alt="Xiaobai Forum Logo" /></center>
+<hr>
