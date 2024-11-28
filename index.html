@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页 - Xiaobai Forum</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -63,76 +64,51 @@ footer {
         padding: 10px;
     }
 }
-    @media (max-width: 768px) {
-    nav ul {
-        padding: 0;
-    }
-
-    nav ul li {
-        display: block;
-        margin-bottom: 10px;
-    }
-}
-    nav ul li {
-        margin-right: 20px; /* 水平间距 */
-        margin-bottom: 10px; /* 垂直间距 */
-    }
-    nav ul li a {
-    font-size: 16px; /* 默认字体大小 */
-}
-
-@media (max-width: 768px) {
-    nav ul li a {
-        font-size: 14px; /* 小屏幕设备上的字体大小 */
-    }
-        }
-    nav ul li a {
-    transition: background-color 0.3s, color 0.3s;
-}
-
-nav ul li a:hover,
-nav ul li a:focus {
-    background-color: #555;
-    color: #fff;
-}
-
-nav ul li a:active {
-    background-color: #222;
-    color: #fff;
-}
-nav ul {
-    display: flex;
-    justify-content: center; /* 居中显示 */
-    flex-wrap: wrap; /* 允许换行 */
-}
-
-nav ul li {
-    flex: 1; /* 每个列表项占据等宽 */
-    text-align: center; /* 文字居中 */
-}
-        nav ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4列等宽 */
-    gap: 10px; /* 列与列之间的间距 */
-}
-
-nav ul li {
-    justify-self: center; /* 居中显示 */
-        }
-        .badge {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 5px;
-    margin-left: 5px;
-}
-
 /* 图标样式 */
 .fa {
     margin-right: 5px;
         }
+/* 弹窗的基本样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* 半透明背景 */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 垂直居中 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 或者使用max-width */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
     </style>
-        <nav>
+        <i id="openModal" class="fas fa-bars fa-2x" title="打开菜单"></i>
+            <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <nav>
             <ul>
                 <li><a href="#home"><i class="fas fa-home"></i>进入论坛</a></li>
                 <li><a href="#screenshot"><i class="fas fa-image"></i>论坛截图</a></li>
@@ -150,6 +126,31 @@ nav ul li {
     document.getElementById('cookieConsent').style.display = 'none';
     // Here you can add code to set a cookie to remember the user's choice
   }
+    // 获取弹窗元素
+var modal = document.getElementById("myModal");
+
+// 获取打开弹窗的按钮元素
+var btn = document.getElementById("openModal");
+
+// 获取关闭弹窗的元素
+var span = document.getElementsByClassName("close")[0];
+
+// 点击按钮打开弹窗
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// 点击关闭按钮关闭弹窗
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// 点击弹窗外部关闭弹窗
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+        }
 </script>
     <center><main>
         <section id="home">
