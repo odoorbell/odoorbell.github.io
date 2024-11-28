@@ -63,16 +63,94 @@ footer {
         padding: 10px;
     }
 }
+    @media (max-width: 768px) {
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+    nav ul li {
+        margin-right: 20px; /* 水平间距 */
+        margin-bottom: 10px; /* 垂直间距 */
+    }
+    nav ul li a {
+    font-size: 16px; /* 默认字体大小 */
+}
+
+@media (max-width: 768px) {
+    nav ul li a {
+        font-size: 14px; /* 小屏幕设备上的字体大小 */
+    }
+        }
+    nav ul li a {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    background-color: #555;
+    color: #fff;
+}
+
+nav ul li a:active {
+    background-color: #222;
+    color: #fff;
+}
+nav ul {
+    display: flex;
+    justify-content: center; /* 居中显示 */
+    flex-wrap: wrap; /* 允许换行 */
+}
+
+nav ul li {
+    flex: 1; /* 每个列表项占据等宽 */
+    text-align: center; /* 文字居中 */
+}
+        nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4列等宽 */
+    gap: 10px; /* 列与列之间的间距 */
+}
+
+nav ul li {
+    justify-self: center; /* 居中显示 */
+        }
+        .badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    margin-left: 5px;
+}
+
+/* 图标样式 */
+.fa {
+    margin-right: 5px;
+        }
     </style>
         <nav>
             <ul>
-                <li><a href="#home">进入论坛</a></li>
-                <li><a href="#screenshot">论坛截图</a></li>
-                <li><a href="#contribute">贡献者们</a></li>
-                <li><a href="#statistics">信息统计</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i>进入论坛</a></li>
+                <li><a href="#screenshot"><i class="fas fa-image"></i>论坛截图</a></li>
+                <li><a href="#contribute"><i class="fas fa-users"></i>贡献者们</a></li>
+                <li><a href="#statistics"><i class="fas fa-info-circle"></i>信息统计</a></li>
             </ul>
         </nav>
     </header>
+    <div class="cookie-consent" id="cookieConsent">
+  初次使用？了解 Xiaobai Forum 吧。 <button onclick="acceptCookies()">前往</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    // Here you can add code to set a cookie to remember the user's choice
+  }
+</script>
     <center><main>
         <section id="home">
             <h1>欢迎来到 Xiaobai Forum！</h1>
