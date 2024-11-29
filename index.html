@@ -121,15 +121,50 @@ footer {
     height: 40px; /* 根据需要调整Logo大小 */
 }
 
-ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
 ul li {
     margin-left: 20px; /* 导航链接之间的间距 */
+}
+        /* 默认的白天模式 */
+:root {
+    --icon-color: #333;
+}
+
+/* 黑夜模式 */
+[data-theme="dark"] {
+    --icon-color: #fff;
+}
+
+#themeToggle {
+    color: var(--icon-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* 黑夜模式下显示月亮图标 */
+[data-theme="dark"] #themeToggle {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900; /* Solid style */
+}
+
+[data-theme="dark"] #themeToggle:not(.fa-moon) {
+    display: none;
+}
+
+#themeToggle.fa-moon {
+    display: none;
+}
+        @media (max-width: 600px) {
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 601px) {
+    img {
+        width: 300px;
+        height: 200px;
+    }
 }
     </style>
         <i id="openModal" class="fas fa-bars fa-2x" title="打开菜单"></i>
@@ -145,6 +180,7 @@ ul li {
                 <li><a href="#screenshot"><i class="fas fa-image"></i>论坛截图</a></li>
                 <li><a href="#contribute"><i class="fas fa-users"></i>贡献者们</a></li>
                 <li><a href="#statistics"><i class="fas fa-info-circle"></i>信息统计</a></li>
+                <i id="themeToggle" class="fas fa-sun fa-2x" title="切换主题"></i>
             </ul>
         </nav>
     </header>
@@ -182,6 +218,40 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
         }
+// 在页面加载时检查是否有存储的主题偏好
+document.addEventListener('DOMContentLoaded', () => {
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    if (currentTheme) {
+        document.body.dataset.theme = currentTheme;
+    }
+});
+
+// 在切换主题时更新localStorage
+themeToggle.addEventListener('click', () => {
+    const newTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.body.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+});
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+});
+    const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.dataset.theme;
+    document.body.dataset.theme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    // 切换图标
+    if (currentTheme === 'dark') {
+        themeToggle.classList.remove('fa-moon');
+        themeToggle.classList.add('fa-sun');
+    } else {
+        themeToggle.classList.remove('fa-sun');
+        themeToggle.classList.add('fa-moon');
+    }
+});
 </script>
     <center><main>
         <section id="home">
