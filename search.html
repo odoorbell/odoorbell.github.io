@@ -1,1 +1,124 @@
-<h1>beta</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白神起始页 - Xiaobai Forum</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+      <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#searchBox {
+    width: 70%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+#clock {
+    font-size: 24px; /* 设置字体大小 */
+    color: #fff; /* 设置字体颜色 */
+}
+/* 响应式布局 */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+      </style>
+        <h1 id="clock">白神起始页</h1>
+        <input type="text" id="searchBox" placeholder="搜索你想要的...">
+        <button onclick="performSearch()">搜索</button>
+    </header>
+    <main>
+        <h2>常用网站</h2>
+        <ul>
+            <li><a href="https://www.google.com">Google</a></li>
+            <li><a href="https://www.bing.com">Bing（推荐）</a></li>
+            <li><a href="https://www.baidu.com">百度</a></li>
+            <!-- 更多链接 -->
+        </ul>
+    </main>
+    <script>
+      function performSearch() {
+    var searchBox = document.getElementById('searchBox');
+    var query = searchBox.value;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+      }
+      function updateClock() {
+    var now = new Date(); // 获取当前时间
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    
+    // 如果分钟或秒钟小于10，添加前导零
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    
+    // 将时间格式化为 HH:MM:SS
+    var timeString = hours + ':' + minutes + ':' + seconds;
+    
+    // 显示时间
+    document.getElementById('clock').textContent = timeString;
+}
+
+// 初始更新时间
+updateClock();
+
+// 每秒更新时间
+setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
