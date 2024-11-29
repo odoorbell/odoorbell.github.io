@@ -103,8 +103,39 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+        @font-face { font-family: ChillRoundF; src: url("https://gcore.jsdelivr.net/gh/145hub/145hub.github.io@master/ChillRoundFRegular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: ChillRoundF; src: url("https://gcore.jsdelivr.net/gh/145hub/145hub.github.io@master/ChillRoundFBold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+
+* { font-family: ChillRoundF, Verdana, Arial, sans-serif; }
+        nav {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+.logo {
+    margin-right: 20px; /* Logo与导航链接之间的间距 */
+}
+
+.logo img {
+    height: 40px; /* 根据需要调整Logo大小 */
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-left: 20px; /* 导航链接之间的间距 */
+}
     </style>
         <i id="openModal" class="fas fa-bars fa-2x" title="打开菜单"></i>
+        <a href="#top" style="text-decoration: none"><div class="logo">
+            <img src="https://img.fastmirror.net/s/2024/11/23/6741e20120618.png" alt="Xiaobai Forum Logo"></a>
+        </div>
             <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -161,11 +192,11 @@ window.onclick = function(event) {
         <section id="screenshot">
             <h2>论坛截图</h2>
             <p>这里是关于论坛的截图。</p>
-            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2bc8227.jpg" srcset="medium.jpg 1000w, large.jpg 2000w"
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2bc8227.jpg"
      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-24-54-87_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-24-54-87_df198e732186825c8df26e3c5a10d7cd.jpg" />
-            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c0b983.jpg" srcset="medium.jpg 1000w, large.jpg 2000w"
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c0b983.jpg"
      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-24-37-27_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-24-37-27_df198e732186825c8df26e3c5a10d7cd.jpg" />
-            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c7ed62.jpg" srcset="medium.jpg 1000w, large.jpg 2000w"
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c7ed62.jpg" 
      sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-25-13-68_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-25-13-68_df198e732186825c8df26e3c5a10d7cd.jpg" />
         </section>
         <section id="contribute">
