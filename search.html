@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <img src="https://bing.img.run/1920x1080.php" alt="Bing每日壁纸1080P高清" />
       <style>
         body {
     font-family: Arial, sans-serif;
@@ -95,7 +96,7 @@ ul li a:hover {
       function performSearch() {
     var searchBox = document.getElementById('searchBox');
     var query = searchBox.value;
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+    window.open('https://cn.bing.com/search?q=' + encodeURIComponent(query), '_blank');
       }
       function updateClock() {
     var now = new Date(); // 获取当前时间
@@ -119,6 +120,39 @@ updateClock();
 
 // 每秒更新时间
 setInterval(updateClock, 1000);
+// 天气显示
+function getWeather(city) {
+    const apiKey = 'a930be550bfe6c44e02b61e84ae610be';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const weatherWidget = document.getElementById('weatherWidget');
+            weatherWidget.innerHTML = `<p>温度: ${data.main.temp}°C </p><p>${data.weather[0].main}</p>`;
+        })
+        .catch(error => console.error('Error fetching weather:', error));
+}
+
+// 假设用户想查看北京的天气
+getWeather('Beijing');
+
+function getGreeting() {
+    const hour = new Date().getHours();
+    let greeting;
+
+    if (hour < 12) {
+        greeting = '早上好！';
+    } else if (hour < 18) {
+        greeting = '下午好！';
+    } else {
+        greeting = '晚上好！';
+    }
+
+    return greeting;
+}
+
+document.getElementById('clock').textContent = getGreeting();
     </script>
+    <div id="weatherWidget"></div>
 </body>
 </html>
