@@ -78,9 +78,40 @@ ul li a:hover {
         padding: 10px;
     }
 }
+          #settingsIcon {
+    cursor: pointer; /* 鼠标悬停时显示为手型 */
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距离底部20px */
+    right: 20px; /* 距离右侧20px */
+    color: #333; /* 图标颜色 */
+    background-color: rgba(255, 255, 255, 0.8); /* 背景半透明 */
+    padding: 10px; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    z-index: 2; /* 确保在最上层 */
+}
+
+#settingsIcon:hover {
+    color: #4CAF50; /* 鼠标悬停时的颜色变化 */
+}
       </style>
         <h1 id="clock">白神起始页</h1>
         <input type="text" id="searchBox" placeholder="搜索你想要的...">
+        <i id="settingsIcon" class="fas fa-cog fa-2x" title="设置"></i>
+        <label>
+    <input type="checkbox" id="toggleWeather" onchange="updateWeatherDisplay(this.checked)" checked> 显示天气
+</label>
+<label>
+    <input type="checkbox" id="toggleBingImage" onchange="updateBingImageDisplay(this.checked)" checked> 显示Bing每日一图
+</label>
+<label>
+    选择搜索引擎：
+    <select id="searchEngineSelector" onchange="updateSearchEngine(this.value)">
+        <option value="google">Google</option>
+        <option value="bing">Bing</option>
+        <option value="baidu">百度</option>
+    </select>
+</label>
+        <span class="close" onclick="document.getElementById('settingsModal').style.display='none'">&times;</span>
         <button onclick="performSearch()">搜索</button>
     </header>
     <main>
@@ -152,6 +183,38 @@ function getGreeting() {
 }
 
 document.getElementById('clock').textContent = getGreeting();
+    document.getElementsByClassName('close')[0].onclick = function() {
+    document.getElementById('settingsModal').style.display = 'none';
+    }
+        document.getElementById('settingsIcon').addEventListener('click', function() {
+    document.getElementById('settingsModal').style.display = 'block';
+});
+        // 页面加载时加载设置
+window.onload = function() {
+    loadSettings();
+}
+
+function loadSettings() {
+    const weatherEnabled = JSON.parse(localStorage.getItem('weatherEnabled')) || true;
+    const bingImageEnabled = JSON.parse(localStorage.getItem('bingImageEnabled')) || true;
+    const searchEngine = localStorage.getItem('searchEngine') || 'google';
+
+    document.getElementById('toggleWeather').checked = weatherEnabled;
+    document.getElementById('toggleBingImage').checked = bingImageEnabled;
+    document.getElementById('searchEngineSelector').value = searchEngine;
+
+    updateWeatherDisplay(weatherEnabled);
+    updateBingImageDisplay(bingImageEnabled);
+    updateSearchEngine(searchEngine);
+}
+
+// 保存设置的函数
+function saveSettings() {
+    localStorage.setItem('weatherEnabled', document.getElementById('toggleWeather').checked);
+    localStorage.setItem('bingImageEnabled', document.getElementById('toggleBingImage').checked);
+    localStorage.setItem('searchEngine', document.getElementById('searchEngineSelector').value);
+        }
+        
     </script>
     <div id="weatherWidget"></div>
 </body>
