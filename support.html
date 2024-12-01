@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助 - Xiaobai Forum</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+    <style>
+    /* 基本样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
+/* 图标样式 */
+.fa {
+    margin-right: 5px;
+        }
+/* 弹窗的基本样式 */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* 半透明背景 */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 垂直居中 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 或者使用max-width */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+        @font-face { font-family: ChillRoundF; src: url("https://gcore.jsdelivr.net/gh/145hub/145hub.github.io@master/ChillRoundFRegular.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: ChillRoundF; src: url("https://gcore.jsdelivr.net/gh/145hub/145hub.github.io@master/ChillRoundFBold.ttf") format("truetype"); font-weight: bold; font-style: normal; }
+
+* { font-family: ChillRoundF, Verdana, Arial, sans-serif; }
+        nav {
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+ul li {
+    margin-left: 20px; /* 导航链接之间的间距 */
+}
+</style>
+<i id="openModal" class="fas fa-bars fa-2x" title="打开菜单"></i>
+        <a href="#top" style="text-decoration: none"><div class="logo">
+            <img src="https://img.fastmirror.net/s/2024/11/23/6741e20120618.png" alt="Xiaobai Forum Logo"></a>
+        </div>
+            <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i>进入论坛</a></li>
+                <li><a href="#screenshot"><i class="fas fa-image"></i>论坛截图</a></li>
+                <li><a href="#contribute"><i class="fas fa-users"></i>贡献者们</a></li>
+                <li><a href="#statistics"><i class="fas fa-info-circle"></i>信息统计</a></li>
+                <i id="themeToggle" class="fas fa-sun fa-2x" title="切换主题"></i>
+            </ul>
+        </nav>
+    </header>
+    <div class="cookie-consent" id="cookieConsent">
+  初次使用？了解 Xiaobai Forum 吧。 <button onclick="acceptCookies()">前往</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    // Here you can add code to set a cookie to remember the user's choice
+  }
+    // 获取弹窗元素
+var modal = document.getElementById("myModal");
+
+// 获取打开弹窗的按钮元素
+var btn = document.getElementById("openModal");
+
+// 获取关闭弹窗的元素
+var span = document.getElementsByClassName("close")[0];
+
+// 点击按钮打开弹窗
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// 点击关闭按钮关闭弹窗
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// 点击弹窗外部关闭弹窗
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+        }
+// 在页面加载时检查是否有存储的主题偏好
+document.addEventListener('DOMContentLoaded', () => {
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    if (currentTheme) {
+        document.body.dataset.theme = currentTheme;
+    }
+});
+
+// 在切换主题时更新localStorage
+themeToggle.addEventListener('click', () => {
+    const newTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.body.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+});
+const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+});
+    const themeToggle = document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.body.dataset.theme;
+    document.body.dataset.theme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    // 切换图标
+    if (currentTheme === 'dark') {
+        themeToggle.classList.remove('fa-moon');
+        themeToggle.classList.add('fa-sun');
+    } else {
+        themeToggle.classList.remove('fa-sun');
+        themeToggle.classList.add('fa-moon');
+    }
+});
+</script>
+    <center><main>
+        <section id="home">
+            <h1>欢迎来到 Xiaobai Forum！</h1>
+            <p>一个多元化论坛。</p>
+            <a href="https://xiaobai.freeflarum.com/" style="text-decoration: none" target="_blank"><button>进入论坛</button></a>
+        </section>
+        <section id="screenshot">
+            <h2>论坛截图</h2>
+            <p>这里是关于论坛的截图。</p>
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2bc8227.jpg"
+     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-24-54-87_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-24-54-87_df198e732186825c8df26e3c5a10d7cd.jpg" />
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c0b983.jpg"
+     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-24-37-27_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-24-37-27_df198e732186825c8df26e3c5a10d7cd.jpg" />
+            <img src="https://img.fastmirror.net/s/2024/11/27/67471e2c7ed62.jpg" 
+     sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw" alt="Screenshot_2024-11-27-21-25-13-68_df198e732186825c8df26e3c5a10d7cd.jpg" title="Screenshot_2024-11-27-21-25-13-68_df198e732186825c8df26e3c5a10d7cd.jpg" />
+        </section>
+        <section id="contribute">
+            <h2>贡献者们</h2>
+            <p>这里是为论坛做出贡献的人，点击他们即可前往详细页。</p>
+            <a href="xxx" style="text-decoration: none" target="_blank">14569</a>
+        </section>
+        <section id="statistics">
+            <h2>信息统计</h2>
+            <h3>论坛浏览量</h3>
+            <b>200</b>
+        </section>
+    </main></center>
+    <footer>
+        <p>版权所有 &copy; 2024 Xiaobai Forum</p>
+    </footer>
+</body>
+</html>
