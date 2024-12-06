@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件下载 - Xiaobai Forum</title>
+</head>
+<body>
+    <header>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+header nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.software-list {
+    margin: 20px;
+}
+
+.software-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.download-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    header nav ul li a {
+        text-align: center;
+        display: block;
+    }
+
+    .software-item {
+        margin-bottom: 20px;
+    }
+}
+  </style>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">软件列表</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="software-list">
+            <h1>推荐软件</h1>
+            <div class="software-item">
+                <h2>软件名称1</h2>
+                <p>软件描述...</p>
+                <a href="#" class="download-btn">下载</a>
+            </div>
+            <div class="software-item">
+                <h2>软件名称2</h2>
+                <p>软件描述...</p>
+                <a href="#" class="download-btn">下载</a>
+            </div>
+            <!-- 更多软件 -->
+        </section>
+    </main>
+
+    <footer>
+        <p>版权所有 &copy; 2024 软件下载站</p>
+    </footer>
+</body>
+</html>
